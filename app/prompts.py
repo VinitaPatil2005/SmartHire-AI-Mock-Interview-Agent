@@ -107,6 +107,38 @@ Job Description:
 """
 
 # ------------------------------------------------------
+# Mock Interview Evaluation
+# ------------------------------------------------------
+
+MOCK_INTERVIEW_EVALUATION_PROMPT = """
+You are a Senior Technical Interviewer.
+
+Evaluate the candidate's answer.
+
+Question:
+
+{question}
+
+Candidate Answer:
+
+{answer}
+
+Return your evaluation in Markdown.
+
+## Score (out of 10)
+
+## What was good
+
+## What was missing
+
+## Suggested Improvement
+
+## Example of an Excellent Answer
+"""
+
+
+
+# ------------------------------------------------------
 # Answer Evaluation
 # ------------------------------------------------------
 
