@@ -68,5 +68,41 @@ if "questions" in st.session_state:
                 answer
             )
 
-        st.markdown(evaluation)
+        
+
+
+        if st.button(
+    "Generate Interview Questions",
+    use_container_width=True
+):
+
+            with st.spinner("Generating Questions..."):
+
+                questions = generate_interview_questions(
+
+                    st.session_state["resume_text"],
+
+                    st.session_state["job_description"]
+
+        )
+
+    st.session_state["questions"] = questions
+
+if "questions" in st.session_state:
+
+    st.success(
+
+        f"{len(st.session_state['questions'])} Questions Generated"
+
+    )
+
+    for question in st.session_state["questions"]:
+
+        st.write(
+            f"**{question['id']}. {question['question']}**"
+        )
+
+        st.caption(
+            question["category"]
+        )
         st.session_state["evaluation"] = evaluation

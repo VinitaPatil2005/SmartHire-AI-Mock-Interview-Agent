@@ -1,3 +1,5 @@
+import json
+
 from app.gemini_service import generate_response
 
 from app.prompts import (
@@ -6,16 +8,30 @@ from app.prompts import (
 
 
 def generate_interview_questions(
-    resume: str,
-    job_description: str
-) -> str:
-    """
-    Generate personalized interview questions.
-    """
+    resume,
+    job_description
+):
 
     prompt = INTERVIEW_QUESTION_PROMPT.format(
         resume=resume,
         jd=job_description
     )
 
-    return generate_response(prompt)
+    response = generate_response(prompt)
+
+    response = (
+        response
+        .replace("```json", "")
+        .replace("```", "")
+        .strip()
+    )
+
+    try:
+
+        questions = json.loads(response)
+
+        return questions
+
+    except Exception:
+
+        return []
