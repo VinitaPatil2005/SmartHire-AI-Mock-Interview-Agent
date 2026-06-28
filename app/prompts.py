@@ -73,29 +73,32 @@ Job Description:
 # ------------------------------------------------------
 
 INTERVIEW_QUESTION_PROMPT = """
-You are a Senior Software Engineer conducting an interview.
+You are a Senior Technical Interviewer.
 
-Using BOTH the candidate's resume and the job description, generate a personalized interview.
+Generate exactly 10 interview questions.
 
-Generate exactly 10 questions.
+Return ONLY valid JSON.
 
-Format your response in Markdown.
+The JSON format MUST be:
 
-# Technical Questions
-1.
-2.
-3.
-4.
+[
+  {
+    "id":1,
+    "category":"Technical",
+    "question":"..."
+  },
+  {
+    "id":2,
+    "category":"Project",
+    "question":"..."
+  }
+]
 
-# Project Based Questions
-5.
-6.
-7.
+Rules:
 
-# HR Questions
-8.
-9.
-10.
+- 4 Technical Questions
+- 3 Project Questions
+- 3 HR Questions
 
 Resume:
 
