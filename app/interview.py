@@ -6,16 +6,16 @@ from app.prompts import (
 
 
 def generate_interview_questions(
-    resume,
-    job_description
-):
+    resume: str,
+    job_description: str
+) -> str:
+    """
+    Generate personalized interview questions.
+    """
 
     prompt = INTERVIEW_QUESTION_PROMPT.format(
-
         resume=resume,
-
         jd=job_description
-
     )
 
     return generate_response(prompt)
