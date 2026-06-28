@@ -1,10 +1,10 @@
+PyMuPDF
 streamlit
 google-generativeai
 langchain
 langchain-community
 faiss-cpu
 sentence-transformers
-PyMuPDF
 python-dotenv
 pandas
 numpy
