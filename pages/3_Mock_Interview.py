@@ -69,3 +69,4 @@ if "questions" in st.session_state:
             )
 
         st.markdown(evaluation)
+        st.session_state["evaluation"] = evaluation
