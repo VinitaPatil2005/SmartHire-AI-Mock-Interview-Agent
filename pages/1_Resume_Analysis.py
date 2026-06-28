@@ -3,9 +3,9 @@ import tempfile
 
 import streamlit as st
 
-from resume_parser import extract_resume_text
-from gemini_service import generate_response
-from prompts import RESUME_ANALYSIS_PROMPT
+from app.resume_parser import extract_resume_text
+from app.gemini_service import generate_response
+from app.prompts import RESUME_ANALYSIS_PROMPT
 
 st.set_page_config(
     page_title="Resume Analysis",
@@ -16,7 +16,7 @@ st.set_page_config(
 st.title("📄 Resume Analysis")
 
 st.write(
-    "Upload your resume and let Gemini analyze it."
+    "Upload your resume to extract information and analyze it using Gemini AI."
 )
 
 uploaded_resume = st.file_uploader(
@@ -39,9 +39,9 @@ if uploaded_resume is not None:
 
     os.remove(temp_path)
 
-    st.success("Resume uploaded successfully!")
-
     st.session_state["resume_text"] = resume_text
+
+    st.success("Resume uploaded successfully!")
 
     with st.expander("View Extracted Resume"):
 
@@ -51,26 +51,30 @@ if uploaded_resume is not None:
             height=350
         )
 
+st.divider()
+
+if "resume_text" in st.session_state:
+
     if st.button(
         "Analyze Resume",
         use_container_width=True
     ):
 
-        with st.spinner(
-            "Gemini is analyzing your resume..."
-        ):
+        with st.spinner("Analyzing Resume..."):
 
             analysis = generate_response(
+
                 RESUME_ANALYSIS_PROMPT.format(
-                    resume=resume_text
+
+                    resume=st.session_state["resume_text"]
+
                 )
+
             )
 
         st.session_state["resume_analysis"] = analysis
 
 if "resume_analysis" in st.session_state:
-
-    st.divider()
 
     st.subheader("🤖 AI Resume Analysis")
 
