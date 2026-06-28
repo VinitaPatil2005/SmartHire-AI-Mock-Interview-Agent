@@ -9,3 +9,5 @@ python-dotenv
 pandas
 numpy
 reportlab
+google-genai
+python-dotenv
