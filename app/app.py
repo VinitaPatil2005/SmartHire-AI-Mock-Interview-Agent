@@ -5,6 +5,7 @@ import streamlit as st
 
 from config import APP_TITLE
 from resume_parser import extract_resume_text
+from jd_parser import clean_job_description
 
 st.set_page_config(
     page_title=APP_TITLE,
@@ -14,37 +15,66 @@ st.set_page_config(
 st.title(APP_TITLE)
 
 st.write(
-    "Upload your resume to begin your AI-powered mock interview."
+    "Upload your resume and provide a Job Description to start your AI mock interview."
 )
 
 st.divider()
 
-uploaded_file = st.file_uploader(
+# ---------------- Resume ----------------
+
+st.header("Resume")
+
+uploaded_resume = st.file_uploader(
     "Upload Resume (PDF)",
     type=["pdf"]
 )
 
-if uploaded_file is not None:
+resume_text = ""
+
+if uploaded_resume is not None:
 
     with tempfile.NamedTemporaryFile(
         delete=False,
         suffix=".pdf"
-    ) as tmp_file:
+    ) as temp_file:
 
-        tmp_file.write(uploaded_file.read())
+        temp_file.write(uploaded_resume.read())
 
-        temp_path = tmp_file.name
+        temp_path = temp_file.name
 
     resume_text = extract_resume_text(temp_path)
 
+    os.remove(temp_path)
+
     st.success("Resume uploaded successfully!")
 
-    st.subheader("Extracted Resume Text")
+    with st.expander("View Resume"):
 
-    st.text_area(
-        "Resume Content",
-        resume_text,
-        height=400
+        st.text_area(
+            "Resume",
+            resume_text,
+            height=300
+        )
+
+st.divider()
+
+# ---------------- Job Description ----------------
+
+st.header("Job Description")
+
+job_description = st.text_area(
+    "Paste the Job Description",
+    height=250
+)
+
+if job_description:
+
+    cleaned_jd = clean_job_description(
+        job_description
     )
 
-    os.remove(temp_path)
+    st.success("Job Description added successfully!")
+
+    with st.expander("View Job Description"):
+
+        st.write(cleaned_jd)
