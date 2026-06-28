@@ -10,10 +10,7 @@ client = genai.Client(
 )
 
 
-def generate_response(prompt: str) -> str:
-    """
-    Generate response from Gemini.
-    """
+def generate_response(prompt: str):
 
     response = client.models.generate_content(
         model="gemini-2.5-flash",
