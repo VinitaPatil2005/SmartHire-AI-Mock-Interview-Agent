@@ -73,20 +73,29 @@ Job Description:
 # ------------------------------------------------------
 
 INTERVIEW_QUESTION_PROMPT = """
-You are a Senior Technical Interviewer.
+You are a Senior Software Engineer conducting an interview.
 
-Based on the resume and job description below, generate exactly 10 interview questions.
+Using BOTH the candidate's resume and the job description, generate a personalized interview.
 
-Divide them into the following categories.
+Generate exactly 10 questions.
 
-## Technical Questions
-(4 questions)
+Format your response in Markdown.
 
-## Project Based Questions
-(3 questions)
+# Technical Questions
+1.
+2.
+3.
+4.
 
-## HR Questions
-(3 questions)
+# Project Based Questions
+5.
+6.
+7.
+
+# HR Questions
+8.
+9.
+10.
 
 Resume:
 
