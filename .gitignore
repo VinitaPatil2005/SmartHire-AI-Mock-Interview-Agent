@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual Environment
+venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Streamlit
+.streamlit/
+
+# Reports
+reports/*.pdf
+
+# Models
+models/
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
