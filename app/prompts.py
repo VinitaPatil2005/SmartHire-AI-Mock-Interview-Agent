@@ -136,7 +136,37 @@ Return your evaluation in Markdown.
 ## Example of an Excellent Answer
 """
 
+#------------------------------------------------------
+# Interview Report Generation
+#------------------------------------------------------
 
+INTERVIEW_REPORT_PROMPT = """
+You are a Senior Hiring Manager.
+
+Based on the interview evaluation below, generate a professional interview report.
+
+Return the report in Markdown.
+
+Include:
+
+# Overall Score (/10)
+
+# Technical Skills
+
+# Communication
+
+# Problem Solving
+
+# Strengths
+
+# Areas for Improvement
+
+# Final Recommendation
+
+Interview Evaluation:
+
+{evaluation}
+"""
 
 # ------------------------------------------------------
 # Answer Evaluation
