@@ -1,131 +1,122 @@
 # SmartHire AI Mock Interview Agent
 
-SmartHire is an AI-powered mock interview platform that helps candidates prepare for technical and HR interviews. Built with Streamlit, Google Gemini, and LangChain, it analyzes resumes and job descriptions, generates personalized interview questions, conducts mock interviews, and produces AI-driven feedback and interview reports.
+SmartHire is an AI-powered mock interview platform that helps candidates prepare for technical and HR interviews. It analyzes resumes and job descriptions, generates personalized interview questions, conducts AI-based mock interviews, and provides structured feedback and performance reports.
 
 ## Features
 
-- Resume Analysis  
-  Extracts and interprets key information from a candidate’s resume.
-
-- Job Description Analysis  
-  Analyzes a job posting to identify required skills, responsibilities, and interview focus areas.
-
-- Personalized Interview Questions  
-  Generates tailored questions based on the resume and job description.
-
-- AI Mock Interview  
-  Simulates a realistic interview experience using AI.
-
-- AI Feedback  
-  Provides structured feedback on candidate responses, including strengths and areas for improvement.
-
-- Interview Report  
-  Generates a downloadable report summarizing the interview session.
+* **Resume Analysis** — Extracts and analyzes skills, projects, education, and experience from resumes.
+* **Job Description Analysis** — Identifies required skills, responsibilities, and key interview areas.
+* **Personalized Questions** — Generates interview questions based on the candidate's resume and target job.
+* **AI Mock Interview** — Simulates a realistic technical and HR interview experience.
+* **AI Feedback** — Evaluates responses and provides strengths, weaknesses, and improvement suggestions.
+* **Interview Report** — Generates a downloadable summary of the interview performance.
 
 ## Tech Stack
 
-- Python
-- Streamlit
-- Google Gemini API
-- LangChain
-- FAISS
-- PyMuPDF
-- Sentence Transformers
-- Pandas
-- NumPy
-- ReportLab
+* **Python**
+* **Streamlit** — Web interface
+* **Google Gemini** — AI question generation and response evaluation
+* **LangChain** — LLM orchestration
+* **FAISS** — Vector similarity search
+* **Sentence Transformers** — Text embeddings
+* **PyMuPDF** — Resume/PDF text extraction
+* **Pandas & NumPy** — Data processing
+* **ReportLab** — Report generation
+
+## How It Works
+
+```text
+Resume + Job Description
+          ↓
+   Resume Analysis
+          ↓
+ Job Description Analysis
+          ↓
+ Personalized Questions
+          ↓
+    AI Mock Interview
+          ↓
+   Response Evaluation
+          ↓
+    AI Feedback
+          ↓
+  Interview Performance Report
+```
 
 ## Project Structure
 
 ```text
-.
+SmartHire-AI-Mock-Interview-Agent/
 ├── SmartHire.py
 ├── app/
 ├── pages/
 ├── requirements.txt
-└── README.md
+├── README.md
+└── LICENSE
 ```
 
-## Getting Started
+## Installation
 
-### Prerequisites
+### 1. Clone the Repository
 
-- Python 3.10+
-- A Google Gemini API key
-
-### Installation
-
-1. Clone the repository:
-   ```bash
+```bash
 git clone https://github.com/VinitaPatil2005/SmartHire-AI-Mock-Interview-Agent.git
 cd SmartHire-AI-Mock-Interview-Agent
-   ```
+```
 
-2. Create and activate a virtual environment:
-   ```bash
+### 2. Create a Virtual Environment
+
+```bash
 python -m venv venv
-   ```
+```
 
-   Windows:
-   ```bash
+**Windows:**
+
+```bash
 venv\Scripts\activate
-   ```
+```
 
-   macOS/Linux:
-   ```bash
+**macOS/Linux:**
+
+```bash
 source venv/bin/activate
-   ```
+```
 
-3. Install dependencies:
-   ```bash
+### 3. Install Dependencies
+
+```bash
 pip install -r requirements.txt
-   ```
+```
 
-4. Add environment variables:
-   Create a `.env` file in the project root and define the required keys:
-   ```env
+### 4. Configure API Key
+
+Create a `.env` file in the project root:
+
+```env
 GOOGLE_API_KEY=your_gemini_api_key
-   ```
+```
 
-## Run the App
-
-Start the Streamlit application with:
+### 5. Run the Application
 
 ```bash
 streamlit run SmartHire.py
 ```
 
-The app will open in your browser, typically at:
+The application will be available at:
 
 ```text
 http://localhost:8501
 ```
 
-## How It Works
-
-1. Upload or provide a resume
-2. Enter a job description
-3. Generate interview questions
-4. Start a mock interview
-5. Review AI feedback
-6. Download the interview report
-
-## Configuration
-
-If the app uses additional settings, check the `app/` package for configuration values such as app title, prompt templates, and helper utilities.
-
 ## Requirements
 
-All dependencies are listed in `requirements.txt`.
+* Python 3.10+
+* Google Gemini API key
+* Internet connection for Gemini API access
 
 ## Contributing
 
-Contributions are welcome.
-
-1. Fork the repository
-2. Create a new branch
-3. Make your changes
-4. Submit a pull request
+Contributions are welcome. Fork the repository, create a feature branch, make your changes, and submit a pull request.
 
 ## License
 
@@ -133,7 +124,9 @@ This project is licensed under the terms specified in the `LICENSE` file.
 
 ## Acknowledgements
 
-- Google Gemini
-- Streamlit
-- LangChain
-- FAISS
+* Google Gemini
+* Streamlit
+* LangChain
+* FAISS
+* Sentence Transformers
+* PyMuPDF
